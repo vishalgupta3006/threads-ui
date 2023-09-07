@@ -4,15 +4,21 @@ import { currentUser } from "@clerk/nextjs";
 const Page = async () => {
   const user = await currentUser();
 
-  const userInfo = {}; //from db
+  const userInfo = {
+    _id: "1",
+    username: "vishal",
+    name:"Vishal",
+    bio: "",
+    image: ""
+  }; //from db
 
   const userData = {
-    id: user?.id,
+    id: user?.id || "",
     objectId: userInfo?._id,
-    username: userInfo?.username || user?.username,
+    username: userInfo?.username || user?.username || "",
     name: userInfo?.name || user?.firstName || "",
     bio: userInfo?.bio || "",
-    image: userInfo?.image || user?.imageUrl  
+    image: userInfo?.image || user?.imageUrl  || ""
 
   }
 
