@@ -26,6 +26,6 @@ export const createThread = async ({
     revalidatePath(path);
   }
   catch (e: any) {
-    throw Error("Failed to create the thread: ", e.message);
+    throw Error("Failed to create the thread: ", e);
   }
 }
