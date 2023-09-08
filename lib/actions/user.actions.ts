@@ -60,6 +60,6 @@ export const fetchUser = async (id: string) => {
     })
   }
   catch (e: any) {
-    throw Error("Failed to fetch user: ", e.message);
+    throw new Error(`Failed to fetch user: ${e.message}`);
   }
 }
