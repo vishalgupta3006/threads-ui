@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
   image: String,
   bio: String,
   threads: [{ type: mongoose.Schema.Types.ObjectId, ref: "Thread" }],
-  onBoarded: { type: Boolean, default: false },
+  onboarded: { type: Boolean, default: false },
   communities: [{ type: mongoose.Schema.Types.ObjectId, ref: "Community" }],
 });
 

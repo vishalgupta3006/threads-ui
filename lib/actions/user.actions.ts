@@ -21,9 +21,10 @@ export const updateUser = async ({
   image,
   path,
 }: TParams): Promise<void> => {
-  connectToDB();
   try {
-    user.findOneAndUpdate(
+    await connectToDB();
+
+    await user.findOneAndUpdate(
       {
         id: userId,
       },
@@ -36,6 +37,7 @@ export const updateUser = async ({
       },
       { upsert: true },
     );
+
 
     if (path === "/profile/edit") {
       revalidatePath(path);

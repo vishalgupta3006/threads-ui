@@ -19,8 +19,7 @@ import { Textarea } from "../ui/textarea";
 import { isBase64Image } from "@/lib/utils";
 import { useUploadThing } from "@/lib/uploadthing";
 import { updateUser } from "@/lib/actions/user.actions";
-import { usePathname } from "next/navigation";
-import { useRouter } from "next/router";
+import { usePathname, useRouter } from "next/navigation";
 
 interface Props {
   user: {
@@ -88,7 +87,6 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
       }
     }
 
-    //Todo update BE
     await updateUser({
       userId: user.id,
       username: values.username,
@@ -97,6 +95,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
       image: values.profile_photo,
       path: pathname,
     });
+    console.log("User Updated")
 
     if (pathname == "/profile/edit") {
       router.back();
