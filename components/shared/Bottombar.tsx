@@ -11,15 +11,18 @@ const Bottombar = () => {
   return (
     <section className="bottombar">
       <div className="bottombar_container">
-        {sidebarLinks.map((link) => {
+        {sidebarLinks.map(link => {
           const isActive =
-            (pathName.includes(link.route) && link.route.length > 1) ||
+            (pathName.includes(link.route) &&
+              link.route.length > 1) ||
             pathName === link.route;
           return (
             <Link
               key={link.label}
               href={link.route}
-              className={`bottombar_link ${isActive ? "bg-primary-500" : ""}`}
+              className={`bottombar_link ${
+                isActive ? "bg-primary-500" : ""
+              }`}
             >
               <Image
                 src={link.imgURL}

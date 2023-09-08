@@ -13,15 +13,18 @@ const LeftSidebar = () => {
   return (
     <section className="custom-scrollbar leftsidebar">
       <div className="flex flex-col flex-1 w-full px-6 gap-6">
-        {sidebarLinks.map((link) => {
+        {sidebarLinks.map(link => {
           const isActive =
-            (pathName.includes(link.route) && link.route.length > 1) ||
+            (pathName.includes(link.route) &&
+              link.route.length > 1) ||
             pathName === link.route;
           return (
             <Link
               key={link.label}
               href={link.route}
-              className={`leftsidebar_link ${isActive ? "bg-primary-500" : ""}`}
+              className={`leftsidebar_link ${
+                isActive ? "bg-primary-500" : ""
+              }`}
             >
               <Image
                 src={link.imgURL}
@@ -29,7 +32,9 @@ const LeftSidebar = () => {
                 height={28}
                 width={28}
               />
-              <p className="text-light-1 max-lg:hidden">{link.label}</p>
+              <p className="text-light-1 max-lg:hidden">
+                {link.label}
+              </p>
             </Link>
           );
         })}
@@ -45,7 +50,9 @@ const LeftSidebar = () => {
                 height={24}
                 width={24}
               />
-              <p className="text-light-2 max-lg:hidden">Logout</p>
+              <p className="text-light-2 max-lg:hidden">
+                Logout
+              </p>
             </div>
           </SignOutButton>
         </SignedIn>

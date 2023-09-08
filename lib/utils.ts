@@ -6,7 +6,8 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function isBase64Image(imageData: string) {
-  const base64Regex = /^data:image\/(png|jpe?g|gif|webp);base64,/;
+  const base64Regex =
+    /^data:image\/(png|jpe?g|gif|webp);base64,/;
   return base64Regex.test(imageData);
 }
 
@@ -18,7 +19,10 @@ export function formatDateString(dateString: string) {
   };
 
   const date = new Date(dateString);
-  const formattedDate = date.toLocaleDateString(undefined, options);
+  const formattedDate = date.toLocaleDateString(
+    undefined,
+    options,
+  );
 
   const time = date.toLocaleTimeString([], {
     hour: "numeric",

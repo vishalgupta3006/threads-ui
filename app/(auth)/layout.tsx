@@ -7,7 +7,8 @@ import "../globals.css";
 
 export const metadata: Metadata = {
   title: "Threads",
-  description: "It is a clone of threads application using nextjs 13",
+  description:
+    "It is a clone of threads application using nextjs 13",
 };
 type Props = {
   children: React.ReactNode;
@@ -19,7 +20,9 @@ const RootLayout = ({ children }: Props) => {
   return (
     <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang="en">
-        <body className={`${inter.className} bg-dark-1`}>{children}</body>
+        <body className={`${inter.className} bg-dark-1`}>
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );

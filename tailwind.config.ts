@@ -190,8 +190,10 @@ module.exports = {
         glassmorphism: "rgba(16, 16, 18, 0.60)",
       },
       boxShadow: {
-        "count-badge": "0px 0px 6px 2px rgba(219, 188, 159, 0.30)",
-        "groups-sidebar": "-30px 0px 60px 0px rgba(28, 28, 31, 0.50)",
+        "count-badge":
+          "0px 0px 6px 2px rgba(219, 188, 159, 0.30)",
+        "groups-sidebar":
+          "-30px 0px 60px 0px rgba(28, 28, 31, 0.50)",
       },
       screens: {
         xs: "400px",
@@ -199,10 +201,14 @@ module.exports = {
       keyframes: {
         "accordion-down": {
           from: { height: 0 },
-          to: { height: "var(--radix-accordion-content-height)" },
+          to: {
+            height: "var(--radix-accordion-content-height)",
+          },
         },
         "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
+          from: {
+            height: "var(--radix-accordion-content-height)",
+          },
           to: { height: 0 },
         },
       },

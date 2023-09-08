@@ -38,7 +38,6 @@ export const updateUser = async ({
       { upsert: true },
     );
 
-
     if (path === "/profile/edit") {
       revalidatePath(path);
     }
@@ -49,17 +48,14 @@ export const updateUser = async ({
   }
 };
 
-
-
 export const fetchUser = async (id: string) => {
   try {
     await connectToDB();
 
     return await User.findOne({
-      id
-    })
-  }
-  catch (e: any) {
+      id,
+    });
+  } catch (e: any) {
     throw new Error(`Failed to fetch user: ${e.message}`);
   }
-}
+};

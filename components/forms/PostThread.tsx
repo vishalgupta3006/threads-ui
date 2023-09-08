@@ -5,7 +5,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { usePathname, useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "../ui/button";
 import { createThread } from "@/lib/actions/thread.actions";
@@ -18,17 +25,21 @@ const PostThread = ({ userId }: { userId: string }) => {
     resolver: zodResolver(threadValidation),
     defaultValues: {
       thread: "",
-      accountId: userId
-    }
-  })
+      accountId: userId,
+    },
+  });
 
-  const onSubmit = async (values: z.infer<typeof threadValidation>) => {
+  const onSubmit = async (
+    values: z.infer<typeof threadValidation>,
+  ) => {
     await createThread({
       text: values.thread,
-      author: userId, communityId: null, path: pathname
-    })
+      author: userId,
+      communityId: null,
+      path: pathname,
+    });
     router.push("/");
-  }
+  };
 
   return (
     <Form {...form}>
@@ -45,19 +56,18 @@ const PostThread = ({ userId }: { userId: string }) => {
                 Content
               </FormLabel>
               <FormControl className="no-focus border border-dark-4 bg-dark-3 text-light-1">
-                <Textarea
-                  rows={15}
-                  {...field}
-                />
+                <Textarea rows={15} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit" className="bg-primary-500">Post Thread</Button>
+        <Button type="submit" className="bg-primary-500">
+          Post Thread
+        </Button>
       </form>
     </Form>
   );
-}
+};
 
 export default PostThread;
