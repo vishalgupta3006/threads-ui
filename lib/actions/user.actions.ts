@@ -1,6 +1,6 @@
 "use server";
 
-import user from "../models/user.models";
+import User from "../models/user.models";
 import { connectToDB } from "../mongoose";
 import { revalidatePath } from "next/cache";
 
@@ -24,7 +24,7 @@ export const updateUser = async ({
   try {
     await connectToDB();
 
-    await user.findOneAndUpdate(
+    await User.findOneAndUpdate(
       {
         id: userId,
       },
@@ -48,3 +48,18 @@ export const updateUser = async ({
     );
   }
 };
+
+
+
+export const fetchUser = async (id: string) => {
+  try {
+    await connectToDB();
+
+    return await User.findOne({
+      id
+    })
+  }
+  catch (e: any) {
+    throw Error("Failed to fetch user: ", e.message);
+  }
+}

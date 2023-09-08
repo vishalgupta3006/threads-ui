@@ -11,6 +11,6 @@ const userSchema = new mongoose.Schema({
   communities: [{ type: mongoose.Schema.Types.ObjectId, ref: "Community" }],
 });
 
-const user = mongoose.models.User || mongoose.model("User", userSchema);
+const User = mongoose.models.User || mongoose.model("User", userSchema);
 
-export default user;
+export default User;

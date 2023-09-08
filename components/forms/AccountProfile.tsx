@@ -2,13 +2,14 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { userValidation } from "@/lib/validations/user";
+import { userValidation } from "@/lib/validations/user.validation";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
+  FormMessage
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -146,6 +147,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                   }
                 />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -164,6 +166,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                   {...field}
                 />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -182,6 +185,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                   {...field}
                 />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -200,6 +204,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                   {...field}
                 />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />

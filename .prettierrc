@@ -6,5 +6,5 @@
 	"singleQuote": false,
 	"trailingComma": "all",
 	"arrowParens": "avoid",
-    "proseWrap": "always"
+	"proseWrap": "always"
 }
