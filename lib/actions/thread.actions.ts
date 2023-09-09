@@ -79,3 +79,82 @@ export const fetchThreads = async (
     throw new Error(`Failed to fetch threds: ${e.message}`);
   }
 };
+
+export const fetchThreadById = async (id: string) => {
+  try {
+    await connectToDB();
+
+    const thread = Thread.findById(id)
+      .populate({
+        path: "author",
+        model: User,
+        select: "_id name parentId image",
+      })
+      .populate({
+        path: "children",
+        populate: [
+          {
+            path: "author",
+            model: User,
+            select: "_id name parentId image",
+          },
+          {
+            path: "children",
+            model: Thread,
+            populate: {
+              path: "author",
+              model: User,
+              select: "_id name parentId image",
+            },
+          },
+        ],
+      })
+      .exec();
+
+    return thread;
+  } catch (e: any) {
+    throw new Error(
+      `Failed to fetch thread details of ${id}: ${e.message}`,
+    );
+  }
+};
+
+type TComment = {
+  threadId: string;
+  commentText: string;
+  userId: string;
+  path: string;
+};
+export const addCommentToThread = async ({
+  threadId,
+  commentText,
+  userId,
+  path,
+}: TComment) => {
+  try {
+    await connectToDB();
+
+    const originalThread = await Thread.findById(threadId);
+
+    if (!originalThread) {
+      throw new Error("Thread not found");
+    }
+
+    const commentThread = new Thread({
+      text: commentText,
+      parent: threadId,
+      author: userId,
+    });
+
+    const savedCommentThread = await commentThread.save();
+
+    originalThread.children.push(savedCommentThread._id);
+    originalThread.save();
+
+    revalidatePath(path);
+  } catch (e: any) {
+    throw new Error(
+      `Failed to add comment on thread ${threadId}: ${e.message}`,
+    );
+  }
+};

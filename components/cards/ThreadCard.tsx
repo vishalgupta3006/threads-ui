@@ -69,7 +69,7 @@ const ThreadCard = ({
             <div className="mt-5 flex flex-col gap-3">
               <div className="flex gap-3.5">
                 <Image
-                  src="assets/heart-gray.svg"
+                  src="/assets/heart-gray.svg"
                   alt="heart"
                   width={24}
                   height={24}
@@ -77,7 +77,7 @@ const ThreadCard = ({
                 />
                 <Link href={`/thread/${id}`}>
                   <Image
-                    src="assets/reply.svg"
+                    src="/assets/reply.svg"
                     alt="reply"
                     width={24}
                     height={24}
@@ -85,14 +85,14 @@ const ThreadCard = ({
                   />
                 </Link>
                 <Image
-                  src="assets/repost.svg"
+                  src="/assets/repost.svg"
                   alt="repost"
                   width={24}
                   height={24}
                   className="cursor-point object-contain"
                 />
                 <Image
-                  src="assets/share.svg"
+                  src="/assets/share.svg"
                   alt="share"
                   width={24}
                   height={24}
