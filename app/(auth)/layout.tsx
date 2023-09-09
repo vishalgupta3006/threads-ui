@@ -21,7 +21,9 @@ const RootLayout = ({ children }: Props) => {
     <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang="en">
         <body className={`${inter.className} bg-dark-1`}>
-          {children}
+          <div className="w-full flex items-center justify-center min-h-screen">
+            {children}
+          </div>
         </body>
       </html>
     </ClerkProvider>
