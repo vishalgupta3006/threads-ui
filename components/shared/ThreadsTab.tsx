@@ -29,7 +29,11 @@ const ThreadsTab = async ({
           currentUserId={currentUserId}
           parentId={thread.parentId}
           content={thread.text}
-          author={thread.author}
+          author={
+            accountType === "User"
+              ? response
+              : thread.author
+          }
           community={thread.community}
           createdAt={thread.createdAt}
           comments={thread.children}
