@@ -14,7 +14,7 @@ const Page = async () => {
   const userInfo = await fetchUser(user.id);
   if (!userInfo?.onboarded) redirect(ROUTES.onboarding);
 
-  const activities = await getActivity(userInfo?._id);
+  const activities = await getActivity(userInfo._id);
 
   console.log(activities)
   return (
@@ -23,7 +23,7 @@ const Page = async () => {
       <section className="flex flex-col mt-10 gap-5">
         {activities.length ? (
           <>
-            {activities.map(activity => (
+            {activities.map((activity: any) => (
               <Link
                 key={activity._id}
                 href={`${ROUTES.thread}/${activity.parentId}`}
