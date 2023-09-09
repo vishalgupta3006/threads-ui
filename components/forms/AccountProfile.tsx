@@ -21,6 +21,7 @@ import { isBase64Image } from "@/lib/utils";
 import { useUploadThing } from "@/lib/uploadthing";
 import { updateUser } from "@/lib/actions/user.actions";
 import { usePathname, useRouter } from "next/navigation";
+import { ROUTES } from "@/constants";
 
 interface Props {
   user: {
@@ -97,10 +98,10 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
       path: pathname,
     });
 
-    if (pathname == "/profile/edit") {
+    if (pathname == ROUTES.editprofile) {
       router.back();
     } else {
-      router.push("/");
+      router.push(ROUTES.home);
     }
   };
 

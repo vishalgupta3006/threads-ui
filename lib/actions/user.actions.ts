@@ -1,5 +1,6 @@
 "use server";
 
+import { ROUTES } from "@/constants";
 import User from "../models/user.models";
 import { connectToDB } from "../mongoose";
 import { revalidatePath } from "next/cache";
@@ -38,7 +39,7 @@ export const updateUser = async ({
       { upsert: true },
     );
 
-    if (path === "/profile/edit") {
+    if (path === ROUTES.editprofile) {
       revalidatePath(path);
     }
   } catch (e: any) {

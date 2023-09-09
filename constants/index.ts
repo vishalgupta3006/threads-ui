@@ -1,32 +1,44 @@
+export enum ROUTES {
+  home = "/",
+onboarding = "/onboarding",
+  search = "/search",
+  activity = "/activity",
+  create = "/create-thread",
+  communities = "/communities",
+  profile = "/profile",
+  thread = "/thread",
+  editprofile = "/profile/edit",
+}
+
 export const sidebarLinks = [
   {
     imgURL: "/assets/home.svg",
-    route: "/",
+    route: ROUTES.home,
     label: "Home",
   },
   {
     imgURL: "/assets/search.svg",
-    route: "/search",
+    route: ROUTES.search,
     label: "Search",
   },
   {
     imgURL: "/assets/heart.svg",
-    route: "/activity",
+    route: ROUTES.activity,
     label: "Activity",
   },
   {
     imgURL: "/assets/create.svg",
-    route: "/create-thread",
+    route: ROUTES.create,
     label: "Create Thread",
   },
   {
     imgURL: "/assets/community.svg",
-    route: "/communities",
+    route: ROUTES.communities,
     label: "Communities",
   },
   {
     imgURL: "/assets/user.svg",
-    route: "/profile",
+    route: ROUTES.profile,
     label: "Profile",
   },
 ];

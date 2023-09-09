@@ -1,5 +1,6 @@
 import ThreadCard from "@/components/cards/ThreadCard";
 import Comment from "@/components/forms/Comment";
+import { ROUTES } from "@/constants";
 import { fetchThreadById } from "@/lib/actions/thread.actions";
 import { fetchUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
@@ -16,7 +17,7 @@ const Page = async ({
   if (!user) return null;
 
   const userInfo = await fetchUser(user.id);
-  if (!userInfo.onboarded) redirect("onboarding");
+  if (!userInfo.onboarded) redirect(ROUTES.onboarding);
 
   const thread = await fetchThreadById(params.id);
 

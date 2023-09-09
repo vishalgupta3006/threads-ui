@@ -16,6 +16,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "../ui/button";
 import { createThread } from "@/lib/actions/thread.actions";
+import { ROUTES } from "@/constants";
 
 const PostThread = ({ userId }: { userId: string }) => {
   const router = useRouter();
@@ -38,7 +39,7 @@ const PostThread = ({ userId }: { userId: string }) => {
       communityId: null,
       path: pathname,
     });
-    router.push("/");
+    router.push(ROUTES.home);
   };
 
   return (

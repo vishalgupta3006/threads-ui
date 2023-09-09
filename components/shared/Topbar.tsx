@@ -1,3 +1,4 @@
+import { ROUTES } from "@/constants";
 import {
   OrganizationSwitcher,
   SignOutButton,
@@ -9,7 +10,7 @@ import Link from "next/link";
 const Topbar = () => {
   return (
     <nav className="topbar">
-      <Link href="/" className="flex items-center gap-4">
+      <Link href={ROUTES.home} className="flex items-center gap-4">
         <Image
           src="./assets/logo.svg"
           alt="logo"

@@ -1,3 +1,4 @@
+import { ROUTES } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -42,7 +43,7 @@ const ThreadCard = ({
         <div className="flex w-full flex-1 flex-row gap-4">
           <div className="flex flex-col items-center">
             <Link
-              href={`/profile/${author.id}`}
+              href={`${ROUTES.profile}/${author.id}`}
               className="relative h-11 w-11"
             >
               <Image
@@ -56,7 +57,7 @@ const ThreadCard = ({
           </div>
           <div className="flex flex-col w-full">
             <Link
-              href={`/profile/${author.id}`}
+              href={`${ROUTES.profile}/${author.id}`}
               className="w-fit"
             >
               <h4 className="cursor-pointer text-base-semibold text-light-2">
@@ -75,7 +76,7 @@ const ThreadCard = ({
                   height={24}
                   className="cursor-point object-contain"
                 />
-                <Link href={`/thread/${id}`}>
+                <Link href={`${ROUTES.thread}/${id}`}>
                   <Image
                     src="/assets/reply.svg"
                     alt="reply"
@@ -101,7 +102,7 @@ const ThreadCard = ({
               </div>
 
               {isComment && comments.length && (
-                <Link href={`/thread/${id}`}>
+                <Link href={`${ROUTES.thread}/${id}`}>
                   <p className="mt-1 text-subtle-medium tex-gray-1">
                     {comments.length} replies
                   </p>
