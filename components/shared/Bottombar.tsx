@@ -1,12 +1,14 @@
 "use client";
 
-import { sidebarLinks } from "@/constants";
+import { ROUTES, sidebarLinks } from "@/constants";
+import { useAuth } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const Bottombar = () => {
   const pathName = usePathname();
+  const { userId } = useAuth();
 
   return (
     <section className="bottombar">
@@ -16,10 +18,15 @@ const Bottombar = () => {
             (pathName.includes(link.route) &&
               link.route.length > 1) ||
             pathName === link.route;
+
+            const route =
+            link.route === ROUTES.profile
+              ? `${link.route}/${userId}`
+              : link.route;
           return (
             <Link
               key={link.label}
-              href={link.route}
+              href={route}
               className={`bottombar_link ${
                 isActive ? "bg-primary-500" : ""
               }`}

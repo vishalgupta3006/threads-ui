@@ -17,7 +17,7 @@ const Page = async ({
   if (!user) return null;
 
   const userInfo = await fetchUser(user.id);
-  if (!userInfo.onboarded) redirect(ROUTES.onboarding);
+  if (!userInfo?.onboarded) redirect(ROUTES.onboarding);
 
   const thread = await fetchThreadById(params.id);
 
