@@ -4,7 +4,6 @@ onboarding = "/onboarding",
   search = "/search",
   activity = "/activity",
   create = "/create-thread",
-  communities = "/communities",
   profile = "/profile",
   thread = "/thread",
   editprofile = "/profile/edit",
@@ -32,11 +31,6 @@ export const sidebarLinks = [
     label: "Create Thread",
   },
   {
-    imgURL: "/assets/community.svg",
-    route: ROUTES.communities,
-    label: "Communities",
-  },
-  {
     imgURL: "/assets/user.svg",
     route: ROUTES.profile,
     label: "Profile",
@@ -58,23 +52,5 @@ export const profileTabs = [
     value: "tagged",
     label: "Tagged",
     icon: "/assets/tag.svg",
-  },
-];
-
-export const communityTabs = [
-  {
-    value: "threads",
-    label: "Threads",
-    icon: "/assets/reply.svg",
-  },
-  {
-    value: "members",
-    label: "Members",
-    icon: "/assets/members.svg",
-  },
-  {
-    value: "requests",
-    label: "Requests",
-    icon: "/assets/request.svg",
   },
 ];

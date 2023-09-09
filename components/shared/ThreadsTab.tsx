@@ -34,7 +34,6 @@ const ThreadsTab = async ({
               ? response
               : thread.author
           }
-          community={thread.community}
           createdAt={thread.createdAt}
           comments={thread.children}
         />

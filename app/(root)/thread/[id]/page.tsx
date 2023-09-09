@@ -31,7 +31,6 @@ const Page = async ({
           parentId={thread.parentId}
           content={thread.text}
           author={thread.author}
-          community={thread.community}
           createdAt={thread.createdAt}
           comments={thread.children}
         />
@@ -54,7 +53,6 @@ const Page = async ({
             parentId={comment.parentId}
             content={comment.text}
             author={comment.author}
-            community={comment.community}
             createdAt={comment.createdAt}
             comments={comment.children}
             isComment

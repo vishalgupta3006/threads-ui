@@ -12,11 +12,6 @@ type TThreadCard = {
     image: string;
     id: string;
   };
-  community: {
-    name: string;
-    image: string;
-    id: string;
-  } | null;
   createdAt: string;
   comments: {
     author: {
@@ -32,7 +27,6 @@ const ThreadCard = ({
   parentId,
   content,
   author,
-  community,
   createdAt,
   comments,
   isComment,

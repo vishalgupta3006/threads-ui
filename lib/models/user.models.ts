@@ -10,12 +10,6 @@ const userSchema = new mongoose.Schema({
     { type: mongoose.Schema.Types.ObjectId, ref: "Thread" },
   ],
   onboarded: { type: Boolean, default: false },
-  communities: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Community",
-    },
-  ],
 });
 
 const User =

@@ -5,7 +5,6 @@ import { Inter } from "next/font/google";
 import Topbar from "@/components/shared/Topbar";
 import Bottombar from "@/components/shared/Bottombar";
 import LeftSidebar from "@/components/shared/LeftSidebar";
-import RightSidebar from "@/components/shared/RightSidebar";
 import { dark } from "@clerk/themes";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -33,7 +32,6 @@ export default function RootLayout({
                 {children}
               </div>
             </section>
-            <RightSidebar />
           </main>
           <Bottombar />
         </body>

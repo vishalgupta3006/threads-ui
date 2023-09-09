@@ -8,13 +8,11 @@ import { connectToDB } from "../mongoose";
 type TThread = {
   text: string;
   author: string;
-  communityId: string | null;
   path: string;
 };
 export const createThread = async ({
   text,
   author,
-  communityId,
   path,
 }: TThread) => {
   try {
@@ -23,7 +21,6 @@ export const createThread = async ({
     const createdThread = await Thread.create({
       text,
       author,
-      community: null,
     });
 
     console.log("Created thread", createThread)
