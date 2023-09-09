@@ -1,8 +1,8 @@
 import { ROUTES } from "@/constants";
 import {
-  OrganizationSwitcher,
   SignOutButton,
   SignedIn,
+  UserButton,
 } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,7 +10,10 @@ import Link from "next/link";
 const Topbar = () => {
   return (
     <nav className="topbar">
-      <Link href={ROUTES.home} className="flex items-center gap-4">
+      <Link
+        href={ROUTES.home}
+        className="flex items-center gap-4"
+      >
         <Image
           src="./assets/logo.svg"
           alt="logo"
@@ -37,14 +40,7 @@ const Topbar = () => {
             </SignOutButton>
           </SignedIn>
         </div>
-
-        <OrganizationSwitcher
-          appearance={{
-            elements: {
-              organizationSwitcherTrigger: "py-2 px-4",
-            },
-          }}
-        />
+        <UserButton />
       </div>
     </nav>
   );
