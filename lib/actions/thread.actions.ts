@@ -142,7 +142,7 @@ export const addCommentToThread = async ({
 
     const commentThread = new Thread({
       text: commentText,
-      parent: threadId,
+      parentId: threadId,
       author: userId,
     });
 
