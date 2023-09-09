@@ -5,7 +5,7 @@ import { currentUser } from "@clerk/nextjs";
 const Home = async () => {
   const { threads, isNext } = await fetchThreads();
   const user = await currentUser();
-  console.log(threads, isNext);
+  // console.log(threads, isNext);
 
   return (
     <>
